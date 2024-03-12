@@ -1,5 +1,11 @@
 {
-  "dates": [],
-  "gasolina": [],
-  "diesel": []
+  "dates": [
+    "12/3"
+  ],
+  "gasolina": [
+    1.619
+  ],
+  "diesel": [
+    1.619
+  ]
 }
