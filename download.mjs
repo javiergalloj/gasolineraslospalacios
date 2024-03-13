@@ -43,7 +43,7 @@ fetch(GEOPORTAL_URL_1, {headers: { 'Accept': ' application/json' }})
     
     writeFile(dataSaved)
 
-    console.log(`Guardado para FUEL_STATION_ID_1 con fecha ${date}: gasolina: ${stationData.precioGasolina95E5} y gasoil: ${stationData.precioGasoleoA}`)
+    console.log(`Guardado para ESTACION 1 con fecha ${date}: gasolina: ${stationData.precioGasolina95E5} y gasoil: ${stationData.precioGasoleoA}`)
     
 })
   .catch(err => {
@@ -67,7 +67,7 @@ fetch(GEOPORTAL_URL_2, {headers: { 'Accept': ' application/json' }})
     
     writeFile(dataSaved)
 
-    console.log(`Guardado para FUEL_STATION_ID_2 con fecha ${date}: gasolina: ${stationData.precioGasolina95E5} y gasoil: ${stationData.precioGasoleoA}`)
+    console.log(`Guardado para ESTACION 2 con fecha ${date}: gasolina: ${stationData.precioGasolina95E5} y gasoil: ${stationData.precioGasoleoA}`)
     
 })
   .catch(err => {
@@ -91,7 +91,7 @@ fetch(GEOPORTAL_URL_3, {headers: { 'Accept': ' application/json' }})
     
     writeFile(dataSaved)
 
-    console.log(`Guardado para FUEL_STATION_ID_3 con fecha ${date}: gasolina: ${stationData.precioGasolina95E5} y gasoil: ${stationData.precioGasoleoA}`)
+    console.log(`Guardado para ESTACION 3 con fecha ${date}: gasolina: ${stationData.precioGasolina95E5} y gasoil: ${stationData.precioGasoleoA}`)
     
 })
   .catch(err => {
@@ -116,7 +116,7 @@ fetch(GEOPORTAL_URL_4, {headers: { 'Accept': ' application/json' }})
     
     writeFile(dataSaved)
 
-    console.log(`Guardado para FUEL_STATION_ID_4 con fecha ${date}: gasolina: ${stationData.precioGasolina95E5} y gasoil: ${stationData.precioGasoleoA}`)
+    console.log(`Guardado para ESTACION 4 con fecha ${date}: gasolina: ${stationData.precioGasolina95E5} y gasoil: ${stationData.precioGasoleoA}`)
     
 })
   .catch(err => {
@@ -141,7 +141,7 @@ fetch(GEOPORTAL_URL_5, {headers: { 'Accept': ' application/json' }})
     
     writeFile(dataSaved)
 
-    console.log(`Guardado para FUEL_STATION_ID_1 con fecha ${date}: gasolina: ${stationData.precioGasolina95E5} y gasoil: ${stationData.precioGasoleoA}`)
+    console.log(`Guardado para ESTACION 5 con fecha ${date}: gasolina: ${stationData.precioGasolina95E5} y gasoil: ${stationData.precioGasoleoA}`)
     
 })
   .catch(err => {
