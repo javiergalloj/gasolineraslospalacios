@@ -4,8 +4,7 @@ import { generateChart } from './generateChart.js'
 
 const TOKEN_TELEGRAM = process.env.TOKEN_TELEGRAM
 const bot = new TelegramBot(TOKEN_TELEGRAM)
-const GASOLINA_CHAT_ID = process.env.GASOLINA_CHAT_ID;
-const DIESEL_CHAT_ID = process.env.DIESEL_CHAT_ID;
+const TELEGRAM_CHAT_ID = process.env.TELEGRAM_CHAT_ID;
 
 const sendToTelegram = async ({price, priceOld, type, chatId}) => {
   if(price !== priceOld){
@@ -25,7 +24,7 @@ sendToTelegram({
   price: dataSaved.gasolina.at(-1),
   priceOld: dataSaved.gasolina.at(-2),
   type: 'de la gasolina',
-  chatId: GASOLINA_CHAT_ID,
+  chatId: TELEGRAM_CHAT_ID,
   date,
 //  image: generateChart(dataSaved, 'gasolina')
 }).catch(error => console.error('Error al enviar el precio de la gasolina', error))
@@ -34,7 +33,7 @@ sendToTelegram({
   price: dataSaved.diesel.at(-1),
   priceOld: dataSaved.diesel.at(-2),
   type: 'del diesel',
-  chatId: DIESEL_CHAT_ID,
+  chatId: TELEGRAM_CHAT_ID,
   date,
 //  image: generateChart(dataSaved, 'diesel')
 }).catch(error => console.error('Error al enviar el precio del gasoil', error))
