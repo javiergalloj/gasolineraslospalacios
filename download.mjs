@@ -4,7 +4,7 @@ import { readFile, writeFile } from './fileUtils.js'
 const FUEL_STATION_ID = process.env.FUEL_STATION_ID
 const GEOPORTAL_URL = `https://geoportalgasolineras.es/rest/${FUEL_STATION_ID}/busquedaEstacionPrecio`
 
-options = {
+let options = {
   day: "numeric",
   month: "numeric",
   year: "numeric",
