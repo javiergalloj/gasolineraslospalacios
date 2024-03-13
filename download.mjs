@@ -44,7 +44,7 @@ const download = (var1, var2, url) => {
 
         writeFile(dataSaved)
 
-        console.log(`Guardado con fecha ${date}: gasolina: ${stationData.precioGasolina95E5} y gasoil: ${stationData.precioGasoleoA}`)
+        console.log(`Guardado con fecha ${date}: gasoil: ${stationData.precioGasoleoA}` y gasolina: ${stationData.precioGasolina95E5})
 
     })
       .catch(err => {
