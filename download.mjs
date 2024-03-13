@@ -11,7 +11,7 @@ let options = {
   hour: "numeric",
   minute: "numeric",
   hour12: true,
-  timeZone: "Madrid/Europe",
+  timeZone: "Europe/Madrid",
 };
 
 const date = new Intl.DateTimeFormat('es-ES', options).format(Date.now())
