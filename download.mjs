@@ -26,124 +26,66 @@ let options = {
 
 const date = new Intl.DateTimeFormat('es-ES', options).format(Date.now())
 
-fetch(GEOPORTAL_URL_1, {headers: { 'Accept': ' application/json' }})
-.then(res => res.json())
-.then((stationData) => {
-    let dataSaved = readFile()
-    
-    if(dataSaved.dates.at(-1) === date){
-      const numElments = dataSaved.dates.length - 1
-      dataSaved.diesel_1[numElments] = stationData.precioGasoleoA
-      dataSaved.gasolina_1[numElments] = stationData.precioGasolina95E5
-    } else {
-      dataSaved.dates.push(date)
-      dataSaved.diesel_1.push(stationData.precioGasoleoA)
-      dataSaved.gasolina_1.push(stationData.precioGasolina95E5)
-    }
-    
-    writeFile(dataSaved)
+const download_diesel = (type, url) => {
+    fetch(url, {headers: { 'Accept': ' application/json' }})
+    .then(res => res.json())
+    .then((stationData) => {
+        let dataSaved = readFile()
 
-    console.log(`Guardado para ESTACION 1 con fecha ${date}: gasolina: ${stationData.precioGasolina95E5} y gasoil: ${stationData.precioGasoleoA}`)
-    
-})
-  .catch(err => {
-    console.error(err)
-  })
+        if(dataSaved.dates.at(-1) === date){
+          const numElments = dataSaved.dates.length - 1
+          dataSaved[type][numElments] = stationData.precioGasoleoA
+        } else {
+          dataSaved.dates.push(date)
+          dataSaved[type].push(stationData.precioGasoleoA)
+        }
 
-fetch(GEOPORTAL_URL_2, {headers: { 'Accept': ' application/json' }})
-.then(res => res.json())
-.then((stationData) => {
-    let dataSaved = readFile()
-    
-    if(dataSaved.dates.at(-1) === date){
-      const numElments = dataSaved.dates.length - 1
-      dataSaved.diesel_2[numElments] = stationData.precioGasoleoA
-      dataSaved.gasolina_2[numElments] = stationData.precioGasolina95E5
-    } else {
-      dataSaved.dates.push(date)
-      dataSaved.diesel_2.push(stationData.precioGasoleoA)
-      dataSaved.gasolina_2.push(stationData.precioGasolina95E5)
-    }
-    
-    writeFile(dataSaved)
+        writeFile(dataSaved)
 
-    console.log(`Guardado para ESTACION 2 con fecha ${date}: gasolina: ${stationData.precioGasolina95E5} y gasoil: ${stationData.precioGasoleoA}`)
-    
-})
-  .catch(err => {
-    console.error(err)
-  })
+        console.log(`Guardado con fecha ${date}: gasolina: ${stationData.precioGasolina95E5} y gasoil: ${stationData.precioGasoleoA}`)
 
-fetch(GEOPORTAL_URL_3, {headers: { 'Accept': ' application/json' }})
-.then(res => res.json())
-.then((stationData) => {
-    let dataSaved = readFile()
-    
-    if(dataSaved.dates.at(-1) === date){
-      const numElments = dataSaved.dates.length - 1
-      dataSaved.diesel_3[numElments] = stationData.precioGasoleoA
-      dataSaved.gasolina_3[numElments] = stationData.precioGasolina95E5
-    } else {
-      dataSaved.dates.push(date)
-      dataSaved.diesel_3.push(stationData.precioGasoleoA)
-      dataSaved.gasolina_3.push(stationData.precioGasolina95E5)
-    }
-    
-    writeFile(dataSaved)
+    })
+      .catch(err => {
+        console.error(err)
+      })
+}
 
-    console.log(`Guardado para ESTACION 3 con fecha ${date}: gasolina: ${stationData.precioGasolina95E5} y gasoil: ${stationData.precioGasoleoA}`)
-    
-})
-  .catch(err => {
-    console.error(err)
-  })
+const download_gasolina = (type, url) => {
+    fetch(url, {headers: { 'Accept': ' application/json' }})
+    .then(res => res.json())
+    .then((stationData) => {
+        let dataSaved = readFile()
+
+        if(dataSaved.dates.at(-1) === date){
+          const numElments = dataSaved.dates.length - 1
+          dataSaved[type][numElments] = stationData.precioGasolina95E5
+        } else {
+          dataSaved.dates.push(date)
+          dataSaved[type].push(stationData.precioGasolina95E5)
+        }
+
+        writeFile(dataSaved)
+
+        console.log(`Guardado con fecha ${date}: gasolina: ${stationData.precioGasolina95E5} y gasoil: ${stationData.precioGasoleoA}`)
+
+    })
+      .catch(err => {
+        console.error(err)
+      })
+}
 
 
-fetch(GEOPORTAL_URL_4, {headers: { 'Accept': ' application/json' }})
-.then(res => res.json())
-.then((stationData) => {
-    let dataSaved = readFile()
-    
-    if(dataSaved.dates.at(-1) === date){
-      const numElments = dataSaved.dates.length - 1
-      dataSaved.diesel_4[numElments] = stationData.precioGasoleoA
-      dataSaved.gasolina_4[numElments] = stationData.precioGasolina95E5
-    } else {
-      dataSaved.dates.push(date)
-      dataSaved.diesel_4.push(stationData.precioGasoleoA)
-      dataSaved.gasolina_4.push(stationData.precioGasolina95E5)
-    }
-    
-    writeFile(dataSaved)
+download_diesel('diesel_1', GEOPORTAL_URL_1)
+download_gasolina('gasolina_1', GEOPORTAL_URL_1)
 
-    console.log(`Guardado para ESTACION 4 con fecha ${date}: gasolina: ${stationData.precioGasolina95E5} y gasoil: ${stationData.precioGasoleoA}`)
-    
-})
-  .catch(err => {
-    console.error(err)
-  })
+download_diesel('diesel_2', GEOPORTAL_URL_2)
+download_gasolina('gasolina_2', GEOPORTAL_URL_2)
 
+download_diesel('diesel_3', GEOPORTAL_URL_3)
+download_gasolina('gasolina_3', GEOPORTAL_URL_3)
 
-fetch(GEOPORTAL_URL_5, {headers: { 'Accept': ' application/json' }})
-.then(res => res.json())
-.then((stationData) => {
-    let dataSaved = readFile()
-    
-    if(dataSaved.dates.at(-1) === date){
-      const numElments = dataSaved.dates.length - 1
-      dataSaved.diesel_5[numElments] = stationData.precioGasoleoA
-      dataSaved.gasolina_5[numElments] = stationData.precioGasolina95E5
-    } else {
-      dataSaved.dates.push(date)
-      dataSaved.diesel_5.push(stationData.precioGasoleoA)
-      dataSaved.gasolina_5.push(stationData.precioGasolina95E5)
-    }
-    
-    writeFile(dataSaved)
+download_diesel('diesel_4', GEOPORTAL_URL_4)
+download_gasolina('gasolina_4', GEOPORTAL_URL_4)
 
-    console.log(`Guardado para ESTACION 5 con fecha ${date}: gasolina: ${stationData.precioGasolina95E5} y gasoil: ${stationData.precioGasoleoA}`)
-    
-})
-  .catch(err => {
-    console.error(err)
-  })
+download_diesel('diesel_5', GEOPORTAL_URL_5)
+download_gasolina('gasolina_5', GEOPORTAL_URL_5)
