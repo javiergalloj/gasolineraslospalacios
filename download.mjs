@@ -4,7 +4,17 @@ import { readFile, writeFile } from './fileUtils.js'
 const FUEL_STATION_ID = process.env.FUEL_STATION_ID
 const GEOPORTAL_URL = `https://geoportalgasolineras.es/rest/${FUEL_STATION_ID}/busquedaEstacionPrecio`
 
-const date = new Intl.DateTimeFormat('es-ES', { month: 'numeric', day: 'numeric' }).format(Date.now())
+options = {
+  day: "numeric",
+  month: "numeric",
+  year: "numeric",
+  hour: "numeric",
+  minute: "numeric",
+  hour12: true,
+  timeZone: "Madrid/Europe",
+};
+
+const date = new Intl.DateTimeFormat('es-ES', options).format(Date.now())
 
 fetch(GEOPORTAL_URL, {headers: { 'Accept': ' application/json' }})
 .then(res => res.json())
