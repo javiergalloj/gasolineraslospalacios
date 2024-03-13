@@ -5,12 +5,12 @@ const FUEL_STATION_ID = process.env.FUEL_STATION_ID
 const GEOPORTAL_URL = `https://geoportalgasolineras.es/rest/${FUEL_STATION_ID}/busquedaEstacionPrecio`
 
 let options = {
-  day: "numeric",
-  month: "numeric",
+  day: "2-digit",
+  month: "2-digit",
   year: "numeric",
-  hour: "numeric",
-  minute: "numeric",
-  hour12: true,
+  hour: "2-digit",
+  minute: "2-digit",
+  hour12: false,
   timeZone: "Europe/Madrid",
 };
 
