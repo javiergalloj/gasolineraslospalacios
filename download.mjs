@@ -31,11 +31,19 @@ const download = (var1, var2, url) => {
     .then(res => res.json())
     .then((stationData) => {
         let dataSaved = readFile()
-        dataSaved.dates.push(date)
-        dataSaved[var1].push(stationData.precioGasoleoA)
-        dataSaved[var2].push(stationData.precioGasolina95E5)
-        dataSaved[var1].shift();
-        dataSaved[var2].shift();
+        if(dataSaved.dates.at(-1) === date){
+          const numElments = dataSaved.dates.length - 1
+          dataSaved[var1][numElments] = stationData.precioGasoleoA
+          dataSaved[var2][numElments] = stationData.precioGasolina95E5
+          dataSaved[var1].shift()
+          dataSaved[var2].shift()
+        } else {
+          dataSaved.dates.push(date)
+          dataSaved[var1].push(stationData.precioGasoleoA)
+          dataSaved[var2].push(stationData.precioGasolina95E5)
+          dataSaved[var1].shift()
+          dataSaved[var2].shift()
+        }
 
         writeFile(dataSaved)
 
@@ -47,12 +55,13 @@ const download = (var1, var2, url) => {
       })
 }
 
-let datosjson = readFile()
-datosjson.dates.shift();
-writeFile(datosjson)
 
 download('diesel_1','gasolina_1', GEOPORTAL_URL_1)
 download('diesel_2','gasolina_2', GEOPORTAL_URL_2)
 download('diesel_3','gasolina_3', GEOPORTAL_URL_3)
 download('diesel_4','gasolina_4', GEOPORTAL_URL_4)
 download('diesel_5','gasolina_5', GEOPORTAL_URL_5)
+
+let datosjson = readFile()
+datosjson.dates.shift();
+writeFile(datosjson)
