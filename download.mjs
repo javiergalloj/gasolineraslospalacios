@@ -31,7 +31,9 @@ const download = (var1, var2, url) => {
     .then(res => res.json())
     .then((stationData) => {
         let dataSaved = readFile()
-
+        dataSaved.dates.shift()
+        dataSaved[var1].shift()
+        dataSaved[var2].shift()
         if(dataSaved.dates.at(-1) === date){
           const numElments = dataSaved.dates.length - 1
           dataSaved[var1][numElments] = stationData.precioGasoleoA
@@ -50,9 +52,6 @@ const download = (var1, var2, url) => {
       .catch(err => {
         console.error(err)
       })
-    dataSaved.dates.shift()
-    dataSaved[var1].shift()
-    dataSaved[var2].shift()
 }
 
 
