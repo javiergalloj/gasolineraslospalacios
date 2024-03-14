@@ -6,6 +6,7 @@ const TOKEN_TELEGRAM = process.env.TOKEN_TELEGRAM
 const bot = new TelegramBot(TOKEN_TELEGRAM)
 const TELEGRAM_CHAT_ID = process.env.TELEGRAM_CHAT_ID;
 
+/*
 const sendToTelegram = async ({price, priceOld, type, chatId}) => {
   if(price !== priceOld){
     const diff = Math.round((price - priceOld) * 1000 ) / 1000
@@ -37,4 +38,45 @@ sendToTelegram({
   date,
 //  image: generateChart(dataSaved, 'diesel')
 }).catch(error => console.error('Error al enviar el precio del gasoil', error))
-  
+*/
+
+const dataSaved = readFile()
+const date = dataSaved.dates.at(-1)
+const precio1 = dataSaved.diesel_1.at(-1)
+const precio2 = dataSaved.gasolina_1.at(-1)
+const precio3 = dataSaved.diesel_2.at(-1)
+const precio4 = dataSaved.gasolina_2.at(-1)
+const precio5 = dataSaved.diesel_3.at(-1)
+const precio6 = dataSaved.gasolina_3.at(-1)
+const precio7 = dataSaved.diesel_4.at(-1)
+const precio8 = dataSaved.gasolina_4.at(-1)
+const precio9 = dataSaved.diesel_5.at(-1)
+const precio10 = dataSaved.gasolina_5.at(-1)
+
+
+const msg = `*Precios Combustibles*
+*LOS PALACIOS Y VFCA*
+Actualización: ${date}
+
+*SHELL (AutoGAS)*
+⛽️ Diesel: ${precio1}€
+⛽️ Gasolina: ${precio2}€
+
+*COMBUSTIBLES Y LAVADO LOS PALACIOS*
+⛽️ Diesel: ${precio3}€
+⛽️ Gasolina: ${precio4}€
+
+*BALLENOIL*
+⛽️ Diesel: ${precio5}€
+⛽️ Gasolina: ${precio6}€
+
+*REPSOL*
+⛽️ Diesel: ${precio7}€
+⛽️ Gasolina: ${precio8}€
+
+*BP*
+⛽️ Diesel: ${precio9}€
+⛽️ Gasolina: ${precio10}€`
+
+console.log(msg)
+await bot.sendMessage(chatId, msg, {parse_mode : 'Markdown'});
