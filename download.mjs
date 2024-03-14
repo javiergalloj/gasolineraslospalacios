@@ -43,9 +43,6 @@ const download = (var1, var2, url) => {
         }
 
         writeFile(dataSaved)
-        dataSaved.dates.shift()
-        dataSaved[var1].shift()
-        dataSaved[var2].shift()
 
         console.log(`Guardado con fecha ${date}: gasoil: ${stationData.precioGasoleoA} y gasolina: ${stationData.precioGasolina95E5}`)
 
@@ -53,6 +50,9 @@ const download = (var1, var2, url) => {
       .catch(err => {
         console.error(err)
       })
+    dataSaved.dates.shift()
+    dataSaved[var1].shift()
+    dataSaved[var2].shift()
 }
 
 
