@@ -42,7 +42,6 @@ sendToTelegram({
 
 const dataSaved = readFile()
 const date = dataSaved.dates.at(-1)
-const chatId: TELEGRAM_CHAT_ID
 const precio1 = dataSaved.diesel_1.at(-1)
 const precio2 = dataSaved.gasolina_1.at(-1)
 const precio3 = dataSaved.diesel_2.at(-1)
@@ -80,4 +79,4 @@ Actualización: ${date}
 ⛽️ Gasolina: ${precio10}€`
 
 console.log(msg)
-await bot.sendMessage(chatId, msg, {parse_mode : 'Markdown'});
+await bot.sendMessage(TELEGRAM_CHAT_ID, msg, {parse_mode : 'Markdown'});
