@@ -54,27 +54,27 @@ const precio9 = dataSaved.diesel_5.at(-1)
 const precio10 = dataSaved.gasolina_5.at(-1)
 
 
-const msg = `*Precios Combustibles*
-*LOS PALACIOS Y VFCA*
+const msg = `*💰PRECIOS COMBUSTIBLES💰*
 Actualización: ${date}
 
-*SHELL (AutoGAS)*
+*SHELL (POL. STA LUCÍA)*
 ⛽️ Diesel: ${precio1}€
 ⛽️ Gasolina: ${precio2}€
 
-*COMBUSTIBLES Y LAVADO LOS PALACIOS*
+*COMBUSTIBLES LOS PALACIOS*
+*(LAVADERO POL. EL MURO)*
 ⛽️ Diesel: ${precio3}€
 ⛽️ Gasolina: ${precio4}€
 
-*BALLENOIL*
+*BALLENOIL (POL. EL MURO)*
 ⛽️ Diesel: ${precio5}€
 ⛽️ Gasolina: ${precio6}€
 
-*REPSOL*
+*REPSOL (BURGER KING)*
 ⛽️ Diesel: ${precio7}€
 ⛽️ Gasolina: ${precio8}€
 
-*BP*
+*BP (COOPERATIVA)*
 ⛽️ Diesel: ${precio9}€
 ⛽️ Gasolina: ${precio10}€`
 
