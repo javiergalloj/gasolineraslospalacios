@@ -42,41 +42,41 @@ sendToTelegram({
 
 const dataSaved = readFile()
 const date = dataSaved.dates.at(-1)
-const precio1 = dataSaved.diesel_1.at(-1)
-const precio2 = dataSaved.gasolina_1.at(-1)
-const precio3 = dataSaved.diesel_2.at(-1)
-const precio4 = dataSaved.gasolina_2.at(-1)
-const precio5 = dataSaved.diesel_3.at(-1)
-const precio6 = dataSaved.gasolina_3.at(-1)
-const precio7 = dataSaved.diesel_4.at(-1)
-const precio8 = dataSaved.gasolina_4.at(-1)
-const precio9 = dataSaved.diesel_5.at(-1)
-const precio10 = dataSaved.gasolina_5.at(-1)
+const diesel_1_new = dataSaved.diesel_1.at(-1)
+const gasolina_1_new = dataSaved.gasolina_1.at(-1)
+const diesel_2_new = dataSaved.diesel_2.at(-1)
+const gasolina_2_new = dataSaved.gasolina_2.at(-1)
+const diesel_3_new = dataSaved.diesel_3.at(-1)
+const gasolina_3_new = dataSaved.gasolina_3.at(-1)
+const diesel_4_new = dataSaved.diesel_4.at(-1)
+const gasolina_4_new = dataSaved.gasolina_4.at(-1)
+const diesel_5_new = dataSaved.diesel_5.at(-1)
+const gasolina_5_new = dataSaved.gasolina_5.at(-1)
 
 
 const msg = `*💰PRECIOS COMBUSTIBLES💰*
 Actualización: ${date}
 
 *SHELL (POL. STA LUCÍA)*
-⛽️ Diesel: ${precio1}€
-⛽️ Gasolina: ${precio2}€
+⛽️ Diesel: ${diesel_1_new}€
+⛽️ Gasolina: ${gasolina_1_new}€
 
 *COMBUSTIBLES LOS PALACIOS*
 *(LAVADERO POL. EL MURO)*
-⛽️ Diesel: ${precio3}€
-⛽️ Gasolina: ${precio4}€
+⛽️ Diesel: ${diesel_2_new}€
+⛽️ Gasolina: ${gasolina_2_new}€
 
 *BALLENOIL (POL. EL MURO)*
-⛽️ Diesel: ${precio5}€
-⛽️ Gasolina: ${precio6}€
+⛽️ Diesel: ${diesel_3_new}€
+⛽️ Gasolina: ${gasolina_3_new}€
 
 *REPSOL (BURGER KING)*
-⛽️ Diesel: ${precio7}€
-⛽️ Gasolina: ${precio8}€
+⛽️ Diesel: ${diesel_4_new}€
+⛽️ Gasolina: ${gasolina_4_new}€
 
 *BP (COOPERATIVA)*
-⛽️ Diesel: ${precio9}€
-⛽️ Gasolina: ${precio10}€`
+⛽️ Diesel: ${diesel_5_new}€
+⛽️ Gasolina: ${gasolina_5_new}€`
 
 console.log(msg)
 await bot.sendMessage(TELEGRAM_CHAT_ID, msg, {parse_mode : 'Markdown'});
