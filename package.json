@@ -21,7 +21,7 @@
   },
   "scripts": {
     "download-today": "node download.mjs",
-    "send": "node sendToTelegram.js"
+    "send": "node sendToTelegram.js",
     "checkpricechange" : "node pricechangeToTelegram.js"
   }
 }
