@@ -1,6 +1,6 @@
 import TelegramBot from 'node-telegram-bot-api'
 import { readFile } from './fileUtils.js'
-import { generateChart } from './generateChart.js'
+//import { generateChart } from './generateChart.js'
 
 const TOKEN_TELEGRAM = process.env.TOKEN_TELEGRAM
 const bot = new TelegramBot(TOKEN_TELEGRAM)
