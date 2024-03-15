@@ -22,5 +22,6 @@
   "scripts": {
     "download-today": "node download.mjs",
     "send": "node sendToTelegram.js"
+    "checkpricechange" : "node pricechangeToTelegram.js"
   }
 }
