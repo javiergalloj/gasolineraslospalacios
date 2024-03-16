@@ -27,6 +27,9 @@ const getVariation = (oldValue, newValue) => {
   } else if (oldValue > newValue) {
     return '🔻';
   }
+  else {
+    return '';
+  }
 };
 
 // Generar mensaje con cambios de precios para todas las estaciones
