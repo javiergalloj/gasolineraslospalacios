@@ -39,6 +39,9 @@ const getVariation = (oldValue, newValue) => {
   } else if (oldValue > newValue) {
     return '🔻';
   }
+  else {
+    return '';
+  }
 };
 
 const msg = `*💰PRECIOS COMBUSTIBLES💰*
