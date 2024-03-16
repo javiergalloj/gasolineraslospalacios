@@ -21,10 +21,10 @@ const enviarMensajeTelegram = (mensaje) => {
   bot.sendMessage(TELEGRAM_CHAT_ID, mensaje, {parse_mode : 'Markdown'});
 };
 
-const getVariation = (oldValue, newValue) => {
-  if (oldValue < newValue) {
+const getVariation = (newValue, oldValue) => {
+  if (newValue > oldValue) {
     return '🔺';
-  } else if (oldValue > newValue) {
+  } else if (newValue < oldValue) {
     return '🔻';
   }
   else {
@@ -41,10 +41,10 @@ estaciones.forEach(estacion => {
   ) {
     mensaje += `*${estacion.nombre}*\n`;
     if (estacion.diesel_old !== estacion.diesel_new) {
-      mensaje += `⛽️ Diesel: ${estacion.diesel_old}€ → ${estacion.diesel_new}€${getVariation(estacion.diesel_old, estacion.diesel_new)}\n`;
+      mensaje += `⛽️ Diesel: ${estacion.diesel_old}€ → ${estacion.diesel_new}€${getVariation(estacion.diesel_new, estacion.diesel_old)}\n`;
     }
     if (estacion.gasolina_old !== estacion.gasolina_new) {
-      mensaje += `⛽️ Gasolina: ${estacion.gasolina_old}€ → ${estacion.gasolina_new}€${getVariation(estacion.gasolina_old, estacion.gasolina_new)}\n`;
+      mensaje += `⛽️ Gasolina: ${estacion.gasolina_old}€ → ${estacion.gasolina_new}€${getVariation(estacion.gasolina_new, estacion.gasolina_old)}\n`;
     }
     mensaje += '\n';
   }
