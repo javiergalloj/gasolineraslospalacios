@@ -30,7 +30,7 @@ const getVariation = (oldValue, newValue) => {
 };
 
 // Generar mensaje con cambios de precios para todas las estaciones
-let mensaje = '*⚠️ ACTUALIZACIÓN ⚠️*\n\n';
+let mensaje = '*⚠️ CAMBIO DE PRECIOS ⚠️*\n\n';
 estaciones.forEach(estacion => {
   if (
     estacion.diesel_old !== estacion.diesel_new ||
@@ -38,10 +38,10 @@ estaciones.forEach(estacion => {
   ) {
     mensaje += `*${estacion.nombre}*\n`;
     if (estacion.diesel_old !== estacion.diesel_new) {
-      mensaje += `⛽️ Diesel: ${estacion.diesel_old} → ${estacion.diesel_new}(${getVariation(oldDiesel, newDiesel)})\n`;
+      mensaje += `⛽️ Diesel: ${estacion.diesel_old}€ → ${estacion.diesel_new}€(${getVariation(oldDiesel, newDiesel)})\n`;
     }
     if (estacion.gasolina_old !== estacion.gasolina_new) {
-      mensaje += `⛽️ Gasolina: ${estacion.gasolina_old} → ${estacion.gasolina_new}(${getVariation(oldDiesel, newDiesel)})\n`;
+      mensaje += `⛽️ Gasolina: ${estacion.gasolina_old}€ → ${estacion.gasolina_new}€(${getVariation(oldDiesel, newDiesel)})\n`;
     }
     mensaje += '\n';
   }
@@ -51,7 +51,7 @@ estaciones.forEach(estacion => {
 console.log(mensaje)
 
 // Enviar mensaje si hay cambios en algun precio
-if (mensaje !== '⚠️ ACTUALIZACIÓN ⚠️\n\n') {
+if (mensaje !== '*⚠️ CAMBIO DE PRECIOS ⚠️*\n\n') {
   console.log(mensaje);
   enviarMensajeTelegram(mensaje);
   
