@@ -38,17 +38,15 @@ estaciones.forEach(estacion => {
   ) {
     mensaje += `*${estacion.nombre}*\n`;
     if (estacion.diesel_old !== estacion.diesel_new) {
-      mensaje += `⛽️ Diesel: ${estacion.diesel_old}€ → ${estacion.diesel_new}€(${getVariation(estacion.diesel_old, estacion.diesel_new)})\n`;
+      mensaje += `⛽️ Diesel: ${estacion.diesel_old}€ → ${estacion.diesel_new}€${getVariation(estacion.diesel_old, estacion.diesel_new)}\n`;
     }
     if (estacion.gasolina_old !== estacion.gasolina_new) {
-      mensaje += `⛽️ Gasolina: ${estacion.gasolina_old}€ → ${estacion.gasolina_new}€(${getVariation(estacion.gasolina_old, estacion.gasolina_new)})\n`;
+      mensaje += `⛽️ Gasolina: ${estacion.gasolina_old}€ → ${estacion.gasolina_new}€${getVariation(estacion.gasolina_old, estacion.gasolina_new)}\n`;
     }
     mensaje += '\n';
   }
 });
 
-
-console.log(mensaje)
 
 // Enviar mensaje si hay cambios en algun precio
 if (mensaje !== '*⚠️ CAMBIO DE PRECIOS ⚠️*\n\n') {
