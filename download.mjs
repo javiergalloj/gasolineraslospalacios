@@ -34,9 +34,8 @@ const download = (var1, var2, url) => {
         dataSaved[var1].shift()
         dataSaved[var2].shift()
         if(dataSaved.dates.at(-1) === date){
-          const numElments = dataSaved.dates.length - 1
-          dataSaved[var1][numElments] = stationData.precioGasoleoA
-          dataSaved[var2][numElments] = stationData.precioGasolina95E5
+          dataSaved[var1].push(stationData.precioGasoleoA)
+          dataSaved[var2].push(stationData.precioGasolina95E5)
         } else {
           dataSaved.dates.push(date)
           dataSaved[var1].push(stationData.precioGasoleoA)
