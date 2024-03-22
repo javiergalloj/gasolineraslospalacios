@@ -3,8 +3,8 @@ name: Descarga precio de hoy
 on:
   workflow_dispatch:
   schedule:
-#    - cron: 0 6 * * *
-#    - cron: 0,30 7,8,9,10,11,12,13,14,15,16,17,18,19,20,21 * * *
+    - cron: 0 6 * * *
+    - cron: 0,30 7,8,9,10,11,12,13,14,15,16,17,18,19,20,21 * * *
 
 env:
   TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
