@@ -42,5 +42,5 @@ jobs:
       if: steps.auto-commit-action.outputs.changes_detected == 'true' && github.event.schedule != '0,30 6,7,8,9,10,11,12,13,14,15,16,17,18,19,20 * * *'
       run: npm run send
     - name: "Envio de cambio de precios, revision cada 30 minutos -> 8:00-22:30 a Telegram"
-      if: steps.auto-commit-action.outputs.changes_detected == 'true' && github.event.schedule != '0 6 * * *'
+      if: steps.auto-commit-action.outputs.changes_detected == 'true' && github.event.schedule != '0 5 * * *'
       run: npm run checkpricechange
