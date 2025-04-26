@@ -13,7 +13,7 @@ const estaciones = [
   { nombre: 'SHELL (POL. STA LUCÍA)', diesel_old: dataSaved.diesel_1.at(-2), gasolina_old: dataSaved.gasolina_1.at(-2), diesel_new: dataSaved.diesel_1.at(-1), gasolina_new: dataSaved.gasolina_1.at(-1) },
   { nombre: 'COMBUSTIBLES LOS PALACIOS\n(LAVADERO POL. EL MURO)', diesel_old: dataSaved.diesel_2.at(-2), gasolina_old: dataSaved.gasolina_2.at(-2), diesel_new: dataSaved.diesel_2.at(-1), gasolina_new: dataSaved.gasolina_2.at(-1) },
   { nombre: 'BALLENOIL (POL. EL MURO)', diesel_old: dataSaved.diesel_3.at(-2), gasolina_old: dataSaved.gasolina_3.at(-2), diesel_new: dataSaved.diesel_3.at(-1), gasolina_new: dataSaved.gasolina_3.at(-1) },
-  { nombre: 'REPSOL (BURGER KING)', diesel_old: dataSaved.diesel_4.at(-2), gasolina_old: dataSaved.gasolina_4.at(-2), diesel_new: dataSaved.diesel_4.at(-1), gasolina_new: dataSaved.gasolina_4.at(-1) },
+//  { nombre: 'REPSOL (BURGER KING)', diesel_old: dataSaved.diesel_4.at(-2), gasolina_old: dataSaved.gasolina_4.at(-2), diesel_new: dataSaved.diesel_4.at(-1), gasolina_new: dataSaved.gasolina_4.at(-1) },
   { nombre: 'BP (COOPERATIVA)', diesel_old: dataSaved.diesel_5.at(-2), gasolina_old: dataSaved.gasolina_5.at(-2), diesel_new: dataSaved.diesel_5.at(-1), gasolina_new: dataSaved.gasolina_5.at(-1) }
 ];
 
